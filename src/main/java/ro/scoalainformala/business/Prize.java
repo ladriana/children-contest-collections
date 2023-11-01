@@ -6,12 +6,12 @@ import java.util.UUID;
 public class Prize implements Comparable<Prize> {
     private String type;
     private String colour;
-    private UUID id;
+    private int inventoryNo;
 
-    public Prize(String type, String colour) {
+    public Prize(String type, String colour, int inventoryNo) {
         this.type = type;
         this.colour = colour;
-        id = UUID.randomUUID();
+        this.inventoryNo = inventoryNo;
     }
 
     public String getType() {
@@ -30,20 +30,20 @@ public class Prize implements Comparable<Prize> {
         this.colour = colour;
     }
 
-    public UUID getId() {
-        return id;
+    public int getInventoryNod() {
+        return inventoryNo ;
     }
 
-    public void setId(UUID id) {
-        this.id = id;
+    public void setInventoryNo(int inventoryNo) {
+        this.inventoryNo = inventoryNo;
     }
 
     public String toString() {
-        return "The toy " + getType() + "has the colour " + getColour() +
-                " and Id " + getId();
+        return "The prize " + getType() + " has the colour " + getColour() +
+                " and the inventory number " + getInventoryNod();
     }
 
-    /*@Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -52,10 +52,10 @@ public class Prize implements Comparable<Prize> {
             return false;
         }
         if (o instanceof Prize other) {
-            return other.getId() == this.getId();
+            return other.getInventoryNod() == this.getInventoryNod();
         }
         return false;
-    }*/
+    }
 
     @Override
     public int hashCode() {
@@ -64,9 +64,13 @@ public class Prize implements Comparable<Prize> {
 
     @Override
     public int compareTo(Prize p) {
-        return this.type != null ?
-                (p.type != null ? this.type.compareTo(p.type) : 1) :
-                -1;
+
+        if (this.inventoryNo > p.inventoryNo) {
+            return 1;
+        } else if (this.inventoryNo == p.inventoryNo) {
+            return 0;
+        }
+        return -1;
     }
 
 }

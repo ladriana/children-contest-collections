@@ -30,8 +30,8 @@ public class Prize implements Comparable<Prize> {
         this.colour = colour;
     }
 
-    public int getInventoryNod() {
-        return inventoryNo ;
+    public int getInventoryNo() {
+        return inventoryNo;
     }
 
     public void setInventoryNo(int inventoryNo) {
@@ -40,7 +40,7 @@ public class Prize implements Comparable<Prize> {
 
     public String toString() {
         return "The prize " + getType() + " has the colour " + getColour() +
-                " and the inventory number " + getInventoryNod();
+                " and the inventory number " + getInventoryNo();
     }
 
     @Override
@@ -52,14 +52,14 @@ public class Prize implements Comparable<Prize> {
             return false;
         }
         if (o instanceof Prize other) {
-            return other.getInventoryNod() == this.getInventoryNod();
+            return other.getType() == this.getType();
         }
         return false;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getType());
+        return Objects.hash(getType(), getInventoryNo());
     }
 
     @Override

@@ -11,6 +11,10 @@ public class BetterPrize implements Comparable<BetterPrize> {
         this.quantity = quantity;
     }
 
+    public BetterPrize(String type) {
+        this.type = type;
+    }
+
     public String getType() {
         return type;
     }
@@ -25,6 +29,11 @@ public class BetterPrize implements Comparable<BetterPrize> {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public int increaseQuantity() {
+
+        return quantity = getQuantity() + 1;
     }
 
     public String toString() {

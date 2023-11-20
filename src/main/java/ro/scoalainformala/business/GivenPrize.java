@@ -11,18 +11,22 @@ public class GivenPrize {
 
     public void addPrize(BetterPrize prize) {
         prizeGiven.add(prize);
+        // prize.setQuantity(prize.getQuantity() + 1);
     }
-
-
 
     public static void changeInventory(List<BetterPrize> prizeList, BetterPrize prize) {
         int a = prizeList.get(prizeList.indexOf(prize)).getQuantity();
         a = a - 1;
         prizeList.get(prizeList.indexOf(prize)).setQuantity(a);
-        if(a == 0) {
+        if (a == 0) {
             prizeList.remove(prize);
         }
+    }
 
+    public void displayList() {
+        for (BetterPrize a : prizeGiven) {
+            System.out.println(a);
+        }
     }
 
     @Override
